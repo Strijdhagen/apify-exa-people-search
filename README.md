@@ -1,5 +1,7 @@
 # Exa People Search - Apify Actor
 
+[![Exa People Search Actor](https://apify.com/actor-badge?actor=fantastic-jobs/exa-ai-people-search)](https://apify.com/fantastic-jobs/exa-ai-people-search)
+
 An open-source Apify Actor wrapper for [Exa.ai](https://exa.ai)'s powerful people search API. Find professionals on LinkedIn and other platforms using natural language queries powered by AI.
 
 ## 🎯 What is This?
