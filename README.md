@@ -269,7 +269,7 @@ Set up recurring searches to:
 
 ```bash
 # Clone the repository
-git clone https://github.com/Strijdhagen/apify-deep-people-search.git
+git clone https://github.com/Strijdhagen/apify-exa-people-search.git
 cd apify-deep-people-search
 
 # Install dependencies
@@ -324,7 +324,7 @@ MIT - see [LICENSE](LICENSE) file for details
 ## 🆘 Support
 
 - **Exa API Issues**: Contact [Exa support](https://exa.ai)
-- **Actor Issues**: Open an issue on [GitHub](https://github.com/Strijdhagen/apify-deep-people-search)
+- **Actor Issues**: Open an issue on [GitHub](https://github.com/Strijdhagen/apify-exa-people-search)
 - **Apify Platform**: Check [Apify docs](https://docs.apify.com/)
 
 ---
