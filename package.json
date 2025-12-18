@@ -1,0 +1,22 @@
+{
+    "name": "exa-people-search",
+    "version": "1.0.0",
+    "type": "module",
+    "description": "Apify Actor wrapper for Exa.ai people search - find professionals on LinkedIn and other platforms using AI-powered search. Requires your own Exa API key.",
+    "engines": {
+        "node": ">=18.0.0"
+    },
+    "dependencies": {
+        "apify": "^3.5.2",
+        "exa-js": "^2.0.11",
+        "dotenv": "^16.4.5"
+    },
+    "scripts": {
+        "start": "node ./src/main.js",
+        "lint": "./node_modules/.bin/eslint ./src --ext .js,.jsx",
+        "lint:fix": "./node_modules/.bin/eslint ./src --ext .js,.jsx --fix",
+        "test": "echo \"Error: oops, the actor has no tests yet, sad!\" && exit 1"
+    },
+    "author": "It's not you it's me",
+    "license": "MIT"
+}

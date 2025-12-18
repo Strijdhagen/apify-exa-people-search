@@ -1,0 +1,52 @@
+{
+    "actorSpecification": 1,
+    "views": {
+        "overview": {
+            "title": "People Search Results",
+            "transformation": {
+                "fields": [
+                    "id",
+                    "title",
+                    "url",
+                    "author",
+                    "publishedDate",
+                    "image",
+                    "text"
+                ]
+            },
+            "display": {
+                "component": "table",
+                "properties": {
+                    "id": {
+                        "label": "ID",
+                        "format": "text"
+                    },
+                    "title": {
+                        "label": "Title",
+                        "format": "text"
+                    },
+                    "url": {
+                        "label": "Profile URL",
+                        "format": "link"
+                    },
+                    "author": {
+                        "label": "Name",
+                        "format": "text"
+                    },
+                    "publishedDate": {
+                        "label": "Published Date",
+                        "format": "text"
+                    },
+                    "image": {
+                        "label": "Image",
+                        "format": "image"
+                    },
+                    "text": {
+                        "label": "Profile Text",
+                        "format": "text"
+                    }
+                }
+            }
+        }
+    }
+}

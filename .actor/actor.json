@@ -1,0 +1,27 @@
+{
+    "actorSpecification": 1,
+    "name": "exa-people-search",
+    "title": "Exa People Search",
+    "description": "Apify Actor wrapper for Exa.ai's people search API. Find professionals by role, location, skills, and more across LinkedIn and other professional networks. Requires your own Exa API key. Perfect for lead generation, talent sourcing, and competitive intelligence.",
+    "version": "1.0",
+    "storages": {
+        "dataset": "./dataset_schema.json"
+    },
+    "output": {
+        "actorOutputSchemaVersion": 1,
+        "title": "Deep People Search Output",
+        "type": "object",
+        "properties": {
+            "results": {
+                "type": "string",
+                "title": "Results",
+                "template": "{{links.apiDefaultDatasetUrl}}/items"
+            }
+        }
+    },
+    "buildTag": "latest",
+    "meta": {
+        "templateId": "deep-people-search"
+    },
+    "dockerfile": "./Dockerfile"
+}
