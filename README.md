@@ -23,7 +23,7 @@ This Actor integrates [Exa.ai's people search](https://exa.ai/blog/people-search
 
 1. Sign up at [exa.ai](https://exa.ai)
 2. Get your API key from the [dashboard](https://dashboard.exa.ai)
-3. **$10 in free credits** to start
+3. **$10 in free credits** to start (as of December 2025)
 
 ### 2. Run the Actor
 
@@ -59,11 +59,28 @@ Add your Exa API key in the Actor input form. The key is marked as secret and en
 **Include Text Content** (`includeText`)
 - Enable to get full profile text
 - Default: `false`
+- Adds $1 per 1,000 results (as of Dec 2025)
 
 **Max Characters** (`maxCharacters`)
 - Maximum characters to retrieve per profile when text is enabled
 - Range: 100-10,000
 - Default: `2000`
+
+**Highlights Query** (`highlightsQuery`)
+- Optional query to extract relevant highlights/snippets from profiles
+- Returns AI-selected excerpts matching your query
+- Example: `"machine learning"`, `"B2B sales experience"`
+- Adds $1 per 1,000 results (as of Dec 2025)
+
+**Sentences per Highlight** (`numSentences`)
+- Number of sentences to return per highlight
+- Range: 1-10, Default: 3
+- Only applies when Highlights Query is set
+
+**Highlights per Result** (`highlightsPerUrl`)
+- Maximum number of highlights per person
+- Range: 1-10, Default: 3
+- Only applies when Highlights Query is set
 - Note: Increases Exa API costs
 
 ## 📤 Output
@@ -78,9 +95,26 @@ Results are stored in the Apify dataset. Each result includes:
   "author": "Jane Smith",
   "publishedDate": "2025-11-18T17:29:45.000Z",
   "image": "https://media.licdn.com/.../profile-photo.jpg",
-  "text": "Full profile content (if includeText enabled)..."
+  "text": "Full profile content (if includeText enabled)...",
+  "highlights": [
+    "Led machine learning team of 15 engineers...",
+    "Specialized in deep learning architectures..."
+  ],
+  "highlightScores": [0.89, 0.76]
 }
 ```
+
+### Field Descriptions
+
+- **id** - Unique Exa identifier for the person
+- **title** - Full title including name and current position
+- **url** - Direct link to their professional profile (usually LinkedIn)
+- **author** - Person's name
+- **publishedDate** - When the profile was last updated (if available)
+- **image** - Profile photo URL
+- **text** - Full profile content (only if `includeText` is enabled)
+- **highlights** - AI-selected relevant excerpts (only if `highlightsQuery` is provided)
+- **highlightScores** - Relevance scores for each highlight (0-1 scale)
 
 ### Search Metadata
 
@@ -109,13 +143,16 @@ Metadata is stored in the key-value store under `search-metadata`:
 
 ### Exa API Costs
 
-This Actor uses your Exa API credits. From [Exa's pricing](https://exa.ai/pricing):
+This Actor uses your Exa API credits. From [Exa's pricing](https://exa.ai/pricing) (as of December 2025):
 
 **Search:**
 - 1-25 results: $5 per 1,000 requests ($0.005 per search)
 - 26-100 results: $25 per 1,000 requests ($0.025 per search)
 
 **Text Content:**
+- $1 per 1,000 pages ($0.001 per result)
+
+**Highlights:**
 - $1 per 1,000 pages ($0.001 per result)
 
 **Examples:**
@@ -150,7 +187,8 @@ See [Apify pricing](https://apify.com/pricing) for details.
   "query": "Senior DevOps engineers with Kubernetes in Singapore",
   "userLocation": "SG",
   "numResults": 100,
-  "includeText": true
+  "includeText": true,
+  "highlightsQuery": "kubernetes docker terraform experience"
 }
 ```
 

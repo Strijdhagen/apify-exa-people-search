@@ -22,7 +22,10 @@ try {
         userLocation = "US", 
         numResults = 10,
         includeText = false,
-        maxCharacters = 2000
+        maxCharacters = 2000,
+        highlightsQuery,
+        numSentences = 3,
+        highlightsPerUrl = 3
     } = input;
 
     if (!query || typeof query !== "string" || query.trim() === "") {
@@ -62,6 +65,15 @@ try {
     if (includeText) {
         searchOptions.text = {
             maxCharacters: Math.min(Math.max(100, maxCharacters), 10000),
+        };
+    }
+
+    // Add highlights if query is provided
+    if (highlightsQuery && highlightsQuery.trim()) {
+        searchOptions.highlights = {
+            query: highlightsQuery.trim(),
+            numSentences: Math.min(Math.max(1, numSentences), 10),
+            highlightsPerUrl: Math.min(Math.max(1, highlightsPerUrl), 10),
         };
     }
 
