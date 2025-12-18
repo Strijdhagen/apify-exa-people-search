@@ -11,7 +11,9 @@
                     "author",
                     "publishedDate",
                     "image",
-                    "text"
+                    "text",
+                    "highlights",
+                    "highlightScores"
                 ]
             },
             "display": {
@@ -44,6 +46,14 @@
                     "text": {
                         "label": "Profile Text",
                         "format": "text"
+                    },
+                    "highlights": {
+                        "label": "Highlights",
+                        "format": "array"
+                    },
+                    "highlightScores": {
+                        "label": "Highlight Scores",
+                        "format": "array"
                     }
                 }
             }
